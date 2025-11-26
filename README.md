@@ -21,7 +21,7 @@ This README explains the **complete end-to-end flow** for creating your **first 
 
 1. Login to **GitHub**
 2. Click **New Repository**
-3. Repository name: `terraform-azure-demo`
+3. Repository name: `terraformDemoProject`
 4. Choose **Public** or **Private**
 5. Optionally add:
 
@@ -37,8 +37,8 @@ This README explains the **complete end-to-end flow** for creating your **first 
 Open Git Bash:
 
 ```sh
-git clone https://github.com/<username>/terraform-azure-demo.git
-cd terraform-azure-demo
+git clone https://github.com/<username>/terraformDemoProject.git
+cd terraformDemoProject
 ```
 
 Your local machine now has an empty Terraform project.
@@ -48,7 +48,7 @@ Your local machine now has an empty Terraform project.
 ## 3️⃣ **Create Terraform Project Structure**
 
 ```
-terraform-azure-demo/
+terraformDemoProject/
 │── main.tf
 │── providers.tf
 │── variables.tf
@@ -199,4 +199,18 @@ Terraform will create:
 * ✔ Deployment using Git-managed infrastructure code
 
 ---
+
+Summary Of terraform First project:
+1.	Create Git Repository
+2.	Clone Repository Locally
+3.	Create Terraform Project Structure
+4.	Create Azure Subscription
+5.	Create App Registration (Service Principal)
+6.	Create Client Secret
+7.	Assign RBAC Role to Service Principal
+8.	Configure Terraform Provider
+9.	Define Variables
+10.	Add Values in terraform.tfvars
+11.	Write Resource Code (Example: Resource Group)
+12.	Initialize and Deploy Terraform
 

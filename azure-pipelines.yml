@@ -39,14 +39,14 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'custom'
-    outputTo: 'console'
-    customCommand: 'Archieve'
+    outputTo: 'file'
+    customCommand: 'Archive'
     environmentServiceNameAzureRM: 'scn'
 - task: TerraformTaskV4@4
   displayName: publish
   inputs:
     provider: 'azurerm'
     command: 'custom'
-    outputTo: 'console'
+    outputTo: 'file'
     customCommand: 'publish'
     environmentServiceNameAzureRM: 'scn'

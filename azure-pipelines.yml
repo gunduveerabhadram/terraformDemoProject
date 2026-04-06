@@ -1,0 +1,52 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name : Default
+
+steps:
+- task: TerraformInstaller@0
+  inputs:
+    terraformVersion: '1.4.0'
+- task: TerraformTaskV4@4
+  displayName: terraform init
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'scn'
+    backendAzureRmResourceGroupName: 'rg234'
+    backendAzureRmStorageAccountName: 'scasdfret89767'
+    backendAzureRmContainerName: 'data'
+    backendAzureRmKey: 'dev.tfstate'
+- task: TerraformTaskV4@4
+  displayName: terraform validate
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+- task: TerraformTaskV4@4
+  displayName: terraform plan
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'scn'
+- task: TerraformTaskV4@4
+  displayName: Archieve
+  inputs:
+    provider: 'azurerm'
+    command: 'custom'
+    outputTo: 'console'
+    customCommand: 'Archieve'
+    environmentServiceNameAzureRM: 'scn'
+- task: TerraformTaskV4@4
+  displayName: publish
+  inputs:
+    provider: 'azurerm'
+    command: 'custom'
+    outputTo: 'console'
+    customCommand: 'publish'
+    environmentServiceNameAzureRM: 'scn'
